@@ -77,30 +77,6 @@ def merge():
 
     MergeList.append("\n" + "Total Fortify Findings: " + str(fortifyfindingcount) + "\n" + "\n" + "\n")
 
-
-# -------------------------------------------------------------------
-# OLD VERSION (Did not capture everything)
-# -------------------------------------------------------------------
-# for burpissue in burproot.iter(tag="issue"):
-#	burpfilename = os.path.basename(burpissue.find("location").text.strip())
-#	burpfilename = re.sub("[\(\[].*?[\)\]]", "", burpfilename)
-#	for fortifyissue in fortifyroot.iter(tag="Issue"):
-#		for fortifyfilename in fortifyissue.iter(tag="FileName"):
-#			if fortifyfilename != "None":
-#				fortifyfilename = fortifyfilename.text.strip()
-#				if fortifyfilename == burpfilename:
-#					MergeList.append("-" * 50)
-#					MergeList.append("Filename: " + fortifyfilename)
-#					for burpfinding in burpissue.iter("name"):
-#						MergeList.append("Burp Finding: " + burpfinding.text)
-#						MergeList.append("Burp Severity: " + burpissue.find("severity").text)
-#						burpfindingcount += 1
-#					for fortifyfinding in fortifyissue.iter('Category'):
-#						MergeList.append("Fortify Finding: " + fortifyfinding.text)
-#						MergeList.append("Fortify Severity: " + fortifyissue.find("Friority").text)
-#						fortifyfindingcount += 1
-
-
 if __name__ == '__main__':
     filename1 = input('Enter Fortify File: ') + '.xml'
     filename2 = input('Enter Burp File: ') + '.xml'
